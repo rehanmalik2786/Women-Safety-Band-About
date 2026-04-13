@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Women Safety Band — Rehan Ahmed Khan</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#cc2222;--red2:#ff3333;--red3:#ff6666;
+  --dark:#08080e;--dark2:#0f0f1a;--dark3:#161625;--dark4:#1e1e30;
+  --text:#f2f2f5;--text2:#9898b8;--text3:#4a4a68;
+  --green:#1db87a;--blue:#2d7fff;--orange:#ff7a2d;
+  --border:#1e1e30;--card:#0f0f1a;--gold:#d4a843;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
+a{color:inherit;text-decoration:none}
+input,textarea,select{font-family:'DM Sans',sans-serif}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:#cc222244;border-radius:2px}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(8,8,14,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#3a0808,#1a0404);border:1.5px solid var(--red);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px}
+.nav-logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.3px}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-size:13px;color:var(--text2);padding:6px 12px;border-radius:7px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--red);color:white!important;padding:7px 18px!important;border-radius:7px;font-weight:600;font-size:13px!important}
+.nav-cta:hover{background:#aa1919!important}
+
+/* ── HERO ── */
+.hero{
+  padding:100px 32px 80px;text-align:center;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(180,20,20,0.08) 0%,transparent 70%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:100%;background:linear-gradient(to bottom,var(--red)44,transparent);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(180,20,20,0.12);border:1px solid rgba(204,34,34,0.3);
+  border-radius:20px;padding:5px 14px;font-size:12px;color:var(--red3);
+  letter-spacing:1px;margin-bottom:28px;font-weight:500;
+}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.hero h1{font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;max-width:780px;margin:0 auto 20px;letter-spacing:-1px}
+.hero h1 span{color:var(--red2)}
+.hero-sub{font-size:17px;color:var(--text2);max-width:580px;margin:0 auto 40px;line-height:1.75;font-weight:300}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{background:var(--red);color:white;border:none;border-radius:10px;padding:14px 32px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;letter-spacing:0.3px}
+.btn-primary:hover{background:#aa1919;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:10px;padding:14px 32px;font-size:15px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.btn-secondary:hover{border-color:var(--text3);transform:translateY(-1px)}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-val{font-size:30px;font-weight:800;font-family:'Syne',sans-serif}
+.stat-label{font-size:11px;color:var(--text3);margin-top:3px;letter-spacing:0.5px;text-transform:uppercase}
+
+/* ── TICKER ── */
+.ticker{background:var(--dark2);border-bottom:1px solid var(--border);padding:13px 0;overflow:hidden}
+.ticker-inner{display:flex;gap:48px;white-space:nowrap;justify-content:center;flex-wrap:wrap;padding:0 24px}
+.ticker-item{font-size:12px;color:var(--text3);letter-spacing:0.5px}
+
+/* ── SECTION COMMON ── */
+.section{padding:80px 32px;max-width:1000px;margin:0 auto}
+.section-tag{font-size:11px;color:var(--red2);letter-spacing:2.5px;font-weight:600;margin-bottom:12px;text-transform:uppercase}
+.section-title{font-size:clamp(24px,3vw,38px);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:16px}
+.section-sub{font-size:15px;color:var(--text2);line-height:1.75;max-width:600px;margin-bottom:48px}
+.divider{border-top:1px solid var(--border)}
+
+/* ── DEMO SECTION ── */
+#demo{padding:80px 32px;background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.demo-header{text-align:center;max-width:700px;margin:0 auto 56px}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;max-width:1000px;margin:0 auto 80px}
+.demo-card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:24px;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;gap:14px;
+  text-decoration:none;color:inherit;
+}
+.demo-card:hover{transform:translateY(-3px);border-color:var(--red)66}
+.demo-card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.demo-card-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:0.5px;margin-left:auto;align-self:flex-start}
+.demo-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text)}
+.demo-card-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.demo-card-arrow{font-size:18px;margin-top:auto;align-self:flex-end}
+
+/* ── DETAIL BLOCKS ── */
+.detail-block{max-width:1000px;margin:0 auto 72px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.detail-block.reverse{direction:rtl}
+.detail-block.reverse>*{direction:ltr}
+.detail-visual{background:var(--dark3);border:1px solid var(--border);border-radius:16px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:64px}
+.detail-content{}
+.detail-content .section-tag{margin-bottom:10px}
+.detail-content h3{font-size:clamp(20px,2.5vw,28px);font-weight:700;margin-bottom:14px;line-height:1.2}
+.detail-content p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.detail-link{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:white;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:background 0.2s}
+.detail-link:hover{background:#aa1919}
+.detail-link-ghost{background:transparent;border:1px solid var(--border);color:var(--text2)}
+.detail-link-ghost:hover{border-color:var(--text3);background:var(--dark3);color:var(--text)}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+.feat-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.feat-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px}
+.feat-desc{font-size:13px;color:var(--text2);line-height:1.65}
+
+/* ── HOW IT WORKS ── */
+.how-wrap{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-steps{display:flex;flex-direction:column;gap:0;max-width:700px;margin:0 auto}
+.step{display:flex;gap:22px;text-align:left;align-items:flex-start;padding-bottom:36px;position:relative}
+.step:last-child{padding-bottom:0}
+.step-line{position:absolute;left:19px;top:42px;bottom:0;width:1px;border-left:1px dashed var(--border)}
+.step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;font-family:'Syne',sans-serif;z-index:1}
+.step-content{padding-top:9px}
+.step-content h4{font-size:15px;font-weight:600;margin-bottom:5px}
+.step-content p{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* ── RESOURCES ── */
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.resource-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:border-color 0.2s}
+.resource-card:hover{border-color:var(--red)55}
+.resource-icon{font-size:24px;flex-shrink:0}
+.resource-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.resource-type{font-size:11px;color:var(--text3)}
+
+/* ── FINANCIALS ── */
+.fin-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:28px}
+.fin-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.fin-label{font-size:10px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.fin-val{font-size:26px;font-weight:800;font-family:'Syne',sans-serif}
+.fin-sub{font-size:11px;color:var(--text3);margin-top:4px}
+.chart-bar{display:flex;align-items:flex-end;gap:10px;height:90px;background:var(--dark3);border-radius:10px;padding:12px 16px 0}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar{width:100%;border-radius:4px 4px 0 0;transition:height 0.3s}
+.bar-label{font-size:10px;color:var(--text3)}
+.bar-val{font-size:10px;color:var(--red3);font-weight:600}
+
+/* ── CONTACT FORM ── */
+#contact{background:var(--dark2);border-top:1px solid var(--border)}
+.contact-wrap{max-width:1000px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.form-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.form-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.form-sub{font-size:13px;color:var(--text2);margin-bottom:24px}
+.form-group{margin-bottom:14px}
+.form-label{font-size:11px;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;display:block}
+.form-input{width:100%;background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:14px;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:var(--red)88}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-btn{width:100%;background:var(--red);color:white;border:none;border-radius:9px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s;margin-top:6px}
+.form-btn:hover{background:#aa1919}
+.form-success{background:#001a0a;border:1px solid var(--green)44;border-radius:10px;padding:14px;font-size:13px;color:var(--green);text-align:center;display:none;margin-top:12px}
+
+/* ── FOUNDER ── */
+.founder-info{}
+.founder-photo-wrap{width:120px;height:140px;border-radius:14px;overflow:hidden;border:2px solid var(--red)44;margin-bottom:20px}
+.founder-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+.founder-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:4px}
+.founder-role{font-size:13px;color:var(--red3);font-weight:600;margin-bottom:14px;letter-spacing:0.3px}
+.founder-bio{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px}
+.founder-details{display:flex;flex-direction:column;gap:7px;margin-bottom:22px}
+.founder-detail{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text2)}
+.founder-detail span:first-child{font-size:15px;width:20px;text-align:center}
+.founder-links{display:flex;flex-wrap:wrap;gap:9px}
+.founder-link{display:flex;align-items:center;gap:7px;background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:12px;color:var(--text2);text-decoration:none;transition:all 0.2s}
+.founder-link:hover{border-color:var(--red)55;color:var(--text)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:28px 32px;text-align:center}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
+.footer-text{font-size:12px;color:var(--text3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:0 16px}.hero{padding:72px 16px 56px}
+  .section{padding:56px 16px}.detail-block{grid-template-columns:1fr;gap:28px}
+  .detail-block.reverse{direction:ltr}.contact-wrap{grid-template-columns:1fr;gap:36px;padding:56px 16px}
+  .hero-stats{gap:28px}.hero h1{font-size:32px}
+  .nav-links a:not(.nav-cta){display:none}
+}
+@media(max-width:480px){
+  .form-row{grid-template-columns:1fr}
+  #demo{padding:56px 16px}
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1,.hero-sub,.hero-btns{animation:fadeUp 0.7s ease both}
+.hero h1{animation-delay:0.1s}.hero-sub{animation-delay:0.2s}.hero-btns{animation-delay:0.3s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">⚡</div>
+    <span class="nav-logo-text">Women Safety Band</span>
+  </div>
+  <div class="nav-links">
+    <a href="#demo">Demo</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Invest ↗</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-badge">INDIA'S WOMEN SAFETY CRISIS — SOLVED</div>
+  <h1>One touch. <span>Instant safety.</span><br/>Real-time protection for every woman.</h1>
+  <p class="hero-sub">A smart wearable that silently triggers SOS alerts, streams live location and audio/video to trusted contacts and police — without touching a phone.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">See Live Demo ↗</button>
+    <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Investor Deck ↗</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val" style="color:var(--red2)">2 min</div><div class="stat-label">crime vs women in India</div></div>
+    <div class="stat"><div class="stat-val">₹4,000</div><div class="stat-label">per device (affordable)</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--green)">5 sec</div><div class="stat-label">alert delivery time</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--gold)">62.5%</div><div class="stat-label">gross margin</div></div>
+  </div>
+</section>
+
+<!-- ═══════ TICKER ═══════ -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">• GEC Bikaner Startup</span>
+    <span class="ticker-item">• IoT + LTE-M Technology</span>
+    <span class="ticker-item">• Police API Integration</span>
+    <span class="ticker-item">• Cloud-First Architecture</span>
+    <span class="ticker-item">• Phone-Free Operation</span>
+    <span class="ticker-item">• Triple-Tap SOS Activation</span>
+    <span class="ticker-item">• Hindi + English Warning Speech</span>
+    <span class="ticker-item">• Evidence Recording</span>
+  </div>
+</div>
+
+<!-- ═══════ LIVE DEMO ═══════ -->
+<section id="demo">
+  <div class="demo-header">
+    <div class="section-tag">EXPLORE THE PROJECT</div>
+    <h2 class="section-title" style="color:var(--text)">Everything in one place</h2>
+    <p style="font-size:15px;color:var(--text2);line-height:1.7">Try the live app, watch demos, read the full thesis, pitch deck, action plan and more. Choose what you want to explore.</p>
+  </div>
+
+  <div class="demo-grid">
+
+    <a class="demo-card" href="https://women-safety-band.vercel.app/" target="_blank">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#1a0505">📱</div>
+        <span class="demo-card-tag" style="background:#cc222222;color:#ff6666;border:1px solid #cc222244">Live</span>
+      </div>
+      <div>
+        <div class="demo-card-title">Live App Prototype</div>
+        <div class="demo-card-desc">Interactive prototype — try the full panic button flow, emergency screen, contacts & dashboard. Hosted live on Vercel.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:var(--red2)">→</div>
+    </a>
+
+    <a class="demo-card" href="https://drive.google.com/drive/folders/1xLyGTIemieJT7lD8FnOw4YgaKfSG0hTb?usp=sharing" target="_blank">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#0a1a0a">📂</div>
+        <span class="demo-card-tag" style="background:#1db87a22;color:#1db87a;border:1px solid #1db87a44">Drive</span>
+      </div>
+      <div>
+        <div class="demo-card-title">All Project Files</div>
+        <div class="demo-card-desc">Access every document, video, PDF, and resource in one Google Drive folder. Complete project archive.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:var(--green)">→</div>
+    </a>
+
+    <div class="demo-card" onclick="document.getElementById('video-band').scrollIntoView({behavior:'smooth'})">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#0a0a1a">🎥</div>
+        <span class="demo-card-tag" style="background:#2d7fff22;color:#2d7fff;border:1px solid #2d7fff44">Video</span>
+      </div>
+      <div>
+        <div class="demo-card-title">Band Prototype Video</div>
+        <div class="demo-card-desc">See the physical wearable band in action — SOS trigger, audio/video streaming, alarm activation.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:var(--blue)">↓</div>
+    </div>
+
+    <div class="demo-card" onclick="document.getElementById('video-pitch').scrollIntoView({behavior:'smooth'})">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#1a1a0a">🎬</div>
+        <span class="demo-card-tag" style="background:#ff7a2d22;color:#ff7a2d;border:1px solid #ff7a2d44">Pitch</span>
+      </div>
+      <div>
+        <div class="demo-card-title">Video Pitch</div>
+        <div class="demo-card-desc">Watch the full video pitch — problem, solution, market opportunity, and vision for nationwide deployment.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:var(--orange)">↓</div>
+    </div>
+
+    <div class="demo-card" onclick="document.getElementById('audio-pitch').scrollIntoView({behavior:'smooth'})">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#1a0a1a">🎙️</div>
+        <span class="demo-card-tag" style="background:#cc22cc22;color:#cc88ff;border:1px solid #cc22cc44">Audio</span>
+      </div>
+      <div>
+        <div class="demo-card-title">Audio Pitch</div>
+        <div class="demo-card-desc">Listen to the full pitch in audio format. Perfect for investors on the go or those who prefer audio.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:#cc88ff">↓</div>
+    </div>
+
+    <a class="demo-card" href="https://drive.google.com/file/d/1H-HUR5HDmuKlLIxkZLzNTeHJSu4h-mu4/view?usp=drive_link" target="_blank">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div class="demo-card-icon" style="background:#0a1a1a">📄</div>
+        <span class="demo-card-tag" style="background:#d4a84322;color:#d4a843;border:1px solid #d4a84344">PDF</span>
+      </div>
+      <div>
+        <div class="demo-card-title">Full Thesis / Report</div>
+        <div class="demo-card-desc">Complete project report — venture viability analysis, problem statement, solution design, market research.</div>
+      </div>
+      <div class="demo-card-arrow" style="color:var(--gold)">→</div>
+    </a>
+
+  </div>
+
+  <!-- ── DETAIL: Band Video ── -->
+  <div id="video-band" class="detail-block" style="max-width:1000px;margin:0 auto 72px">
+    <div class="detail-visual" style="aspect-ratio:auto;background:var(--dark3);border-radius:16px;overflow:hidden;border:1px solid var(--border)">
+      <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube-nocookie.com/embed/WJfkGynoa7k" 
+      title="Women Safety Band - Hardware Demo"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      style="display:block;min-height:260px;border-radius:16px">
+      </iframe>
+    </div>
+    <div class="detail-content">
+      <div class="section-tag">HARDWARE DEMO</div>
+      <h3>See the physical band in action</h3>
+      <p>This video demonstrates the actual Women Safety Band prototype — showing how a single capacitive touch activates the entire emergency system. The band operates independently via LTE-M, without needing a phone nearby.</p>
+      <p>Watch the SOS trigger, live GPS transmission, audio/video streaming activation, and the 110dB alarm — all in one wearable device.</p>
+      <a class="detail-link" href="https://drive.google.com/file/d/1OeP-cMYkGvdkw5mf0dUtmDk-xMEXIoI7/view?usp=drive_link" target="_blank">Watch on Drive ↗</a>
+    </div>
+  </div>
+
+  <!-- ── DETAIL: Video Pitch ── -->
+  <div id="video-pitch" class="detail-block reverse" style="max-width:1000px;margin:0 auto 72px">
+    <div class="detail-visual" style="aspect-ratio:auto;background:var(--dark3);border-radius:16px;overflow:hidden;border:1px solid var(--border)">
+      <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube-nocookie.com/embed/9-tnb2JGli8" 
+      title="Women Safety Band - Video Pitch"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      style="display:block;min-height:260px;border-radius:16px">
+    </iframe>
+    </div>
+    <div class="detail-content">
+      <div class="section-tag">INVESTOR PITCH</div>
+      <h3>The story behind Women Safety Band</h3>
+      <p>In this pitch, Rehan walks through the problem that drives this startup — thousands of women in India face daily harassment, delayed emergency response, and lack of justice due to absence of evidence.</p>
+      <p>The Women Safety Band is the answer: affordable, wearable, phone-free protection that captures real-time evidence and alerts authorities within seconds.</p>
+      <a class="detail-link" href="https://drive.google.com/file/d/1Sye6kcXVJbV_C3lwTMzLSmL2AugtHIH0/view?usp=drive_link" target="_blank">Watch on Drive ↗</a>
+    </div>
+  </div>
+
+  <!-- ── DETAIL: Audio Pitch ── -->
+  <div id="audio-pitch" style="max-width:1000px;margin:0 auto 72px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <div style="width:46px;height:46px;background:#1a0a1a;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px">🎙️</div>
+      <div>
+        <div class="section-tag" style="margin-bottom:2px">AUDIO PITCH</div>
+        <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:700">Listen to the full pitch</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:20px;line-height:1.7">Hear Rehan's complete investment pitch in audio format. Ideal for investors who want to listen while commuting or multitasking.</p>
+    <audio controls style="width:100%;margin-bottom:16px;accent-color:var(--red)">
+      <source src="assets/audio/Audio Pitch for Women Safety Band.mp3" type="audio/mpeg"/>
+      <p style="color:var(--text3);font-size:13px">Audio not found locally. <a href="https://drive.google.com/drive/folders/1xLyGTIemieJT7lD8FnOw4YgaKfSG0hTb?usp=sharing" target="_blank" style="color:var(--red2)">Access on Drive →</a></p>
+    </audio>
+    <div style="background:var(--dark3);border-radius:10px;padding:16px;font-size:13px;color:var(--text2);line-height:1.7;font-style:italic;border-left:3px solid var(--red)">
+      "In India, every day, thousands of women step out with fear. Fear of harassment… fear of not getting help on time. With just one touch, our band instantly sends an SOS alert, shares live location, and starts real-time audio and video recording and streaming to family members and the police… This is not just a startup. This is a mission to save lives."
+      <div style="margin-top:8px;font-size:12px;color:var(--text3);font-style:normal">— Rehan Ahmed Khan, Founder</div>
+    </div>
+  </div>
+
+  <!-- ── DETAIL: App Prototype ── -->
+  <div class="detail-block" style="max-width:1000px;margin:0 auto 72px">
+    <div class="detail-visual" style="background:var(--dark3);border-radius:16px;border:1px solid var(--border);overflow:hidden;aspect-ratio:9/16;max-height:480px">
+      <iframe src="https://women-safety-band.vercel.app/" style="width:100%;height:100%;border:none;transform-origin:top left" title="WSB App Prototype"></iframe>
+    </div>
+    <div class="detail-content">
+      <div class="section-tag">INTERACTIVE APP</div>
+      <h3>Try the full app prototype</h3>
+      <p>The live prototype demonstrates the complete user journey — OTP login, home dashboard with panic button, emergency screen with GPS tracking, trusted contacts management, incident history, and analytics dashboard.</p>
+      <p>Built with React, Firebase backend, simulated LTE-M connectivity, and real-time GPS drift simulation during emergencies.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="detail-link" href="https://women-safety-band.vercel.app/" target="_blank">Open Full App ↗</a>
+        <a class="detail-link detail-link-ghost" href="https://drive.google.com/drive/folders/1xLyGTIemieJT7lD8FnOw4YgaKfSG0hTb?usp=sharing" target="_blank">Source Files ↗</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════ FEATURES ═══════ -->
+<section id="features" class="section">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="section-tag">CORE FEATURES</div>
+    <h2 class="section-title">Everything a woman needs.<br/>In one wearable.</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#1a0505">📣</div>
+      <div class="feat-title">Triple-Tap SOS</div>
+      <div class="feat-desc">Tap 3 times to activate — prevents accidental triggers. Each tap lights up a progress indicator. Activates full emergency mode in under 2 seconds.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#0a1a0a">📍</div>
+      <div class="feat-title">Live GPS Tracking</div>
+      <div class="feat-desc">Real-time location update every 2 seconds to contacts and police. Full location trail stored as court-admissible legal evidence.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#0a0a1a">🎥</div>
+      <div class="feat-title">Live Audio/Video</div>
+      <div class="feat-desc">Encrypted live stream sent directly to trusted contacts and police. Simultaneously recorded to cloud. Admissible as evidence in court.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#1a1a0a">🔊</div>
+      <div class="feat-title">110dB Alarm + Warning Speech</div>
+      <div class="feat-desc">Phone speaker plays a warning message in Hindi or English: "Let the girl go. Your location and video have been sent to police." Loops until emergency ends.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#0a1a1a">📡</div>
+      <div class="feat-title">Phone-Free (LTE-M/NB-IoT)</div>
+      <div class="feat-desc">Built-in eSIM connects directly to cloud via cellular. Works even if phone is dead, taken, or out of range. Always-on protection.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#1a0a0a">🚔</div>
+      <div class="feat-title">Police API Integration</div>
+      <div class="feat-desc">Direct auto-dispatch to nearest police station with live GPS coordinates. Integrates with state-level emergency systems like Rajasthan Police Shakti app.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOW IT WORKS ═══════ -->
+<div class="how-wrap divider">
+  <div class="section">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-tag">HOW IT WORKS</div>
+      <h2 class="section-title">From panic to police in 5 seconds</h2>
+    </div>
+    <div class="how-steps">
+      <div class="step"><div class="step-line"></div><div class="step-num" style="background:var(--red);color:white">1</div><div class="step-content"><h4>Triple-tap the panic button</h4><p>Three taps on the band's capacitive button — or say "Help" — activates emergency mode. 3-tap prevents accidental triggers.</p></div></div>
+      <div class="step"><div class="step-line"></div><div class="step-num" style="background:#991a1a;color:white">2</div><div class="step-content"><h4>Band transmits via LTE-M</h4><p>GPS coordinates, audio/video stream, and SOS signal sent directly to cloud server via cellular. No phone required.</p></div></div>
+      <div class="step"><div class="step-line"></div><div class="step-num" style="background:#661111;color:white">3</div><div class="step-content"><h4>Phone plays warning speech</h4><p>Mobile speaker activates: "Let the girl go. Your location and video have been sent to police..." Loops in Hindi or English until emergency ends.</p></div></div>
+      <div class="step"><div class="step-line"></div><div class="step-num" style="background:#441111;color:white">4</div><div class="step-content"><h4>Cloud routes alerts simultaneously</h4><p>Trusted contacts receive SMS + push notification with live map link. Police dashboard auto-dispatched. All happening in parallel.</p></div></div>
+      <div class="step"><div class="step-num" style="background:var(--green);color:#001a00">5</div><div class="step-content"><h4>Help arrives. Evidence secured.</h4><p>All recordings stored encrypted on cloud — available as legal proof. User presses "I am safe" to close the incident.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ RESOURCES ═══════ -->
+<section id="about" class="section">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="section-tag">DOWNLOADS</div>
+    <h2 class="section-title">All project resources</h2>
+    <p style="font-size:15px;color:var(--text2)">Every document, PDF, and file available for download or viewing.</p>
+  </div>
+  <div class="resources-grid">
+    <a class="resource-card" href="assets/pdf/Women_Safety_Band.pdf" target="_blank">
+      <div class="resource-icon">📋</div><div><div class="resource-name">Full Thesis / Report</div><div class="resource-type">PDF · Venture Viability Analysis</div></div>
+    </a>
+    <a class="resource-card" href="assets/pdf/Pitch_for_Women_Safety_Band.pdf" target="_blank">
+      <div class="resource-icon">🎤</div><div><div class="resource-name">Pitch Script</div><div class="resource-type">PDF · Investor Pitch Text</div></div>
+    </a>
+    <a class="resource-card" href="assets/pdf/Women_Safety_Band_Action_Plan.pdf" target="_blank">
+      <div class="resource-icon">📅</div><div><div class="resource-name">Action Plan</div><div class="resource-type">PDF · 3-Phase Roadmap</div></div>
+    </a>
+    <a class="resource-card" href="assets/pdf/Mobile_App_Women_Safety_Band.pdf" target="_blank">
+      <div class="resource-icon">📱</div><div><div class="resource-name">App Build Spec</div><div class="resource-type">PDF · Full App Requirements</div></div>
+    </a>
+    <a class="resource-card" href="assets/pdf/Women_Safety_Band_Mobile_App_Prototype.pdf" target="_blank">
+      <div class="resource-icon">🔧</div><div><div class="resource-name">App Prototype Doc</div><div class="resource-type">PDF · Technical Architecture</div></div>
+    </a>
+    <a class="resource-card" href="https://drive.google.com/drive/folders/1xLyGTIemieJT7lD8FnOw4YgaKfSG0hTb?usp=sharing" target="_blank">
+      <div class="resource-icon">📂</div><div><div class="resource-name">Complete Drive Folder</div><div class="resource-type">Google Drive · All Files</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ FINANCIALS ═══════ -->
+<div class="divider" style="background:var(--dark2);border-bottom:1px solid var(--border)">
+<div class="section">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="section-tag">FINANCIALS</div>
+    <h2 class="section-title">A scalable, impactful investment</h2>
+  </div>
+  <div class="fin-cards">
+    <div class="fin-card"><div class="fin-label">Funding Needed</div><div class="fin-val" style="color:var(--red2)">₹4–5 Cr</div><div class="fin-sub">full growth plan</div></div>
+    <div class="fin-card"><div class="fin-label">Unit Cost (scale)</div><div class="fin-val">₹2,000</div><div class="fin-sub">manufacturing cost</div></div>
+    <div class="fin-card"><div class="fin-label">Sell Price</div><div class="fin-val">₹4,000</div><div class="fin-sub">per device</div></div>
+    <div class="fin-card"><div class="fin-label">Gross Margin</div><div class="fin-val" style="color:var(--green)">62.5%</div><div class="fin-sub">strong unit economics</div></div>
+    <div class="fin-card"><div class="fin-label">Break-Even</div><div class="fin-val">Year 2</div><div class="fin-sub">with scaled sales</div></div>
+  </div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-top:16px">
+    <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;color:var(--text)">3-Year Revenue Projection</div>
+    <div class="chart-bar">
+      <div class="bar-col"><div style="display:flex;flex-direction:column;justify-content:flex-end;height:66px"><div class="bar" style="background:#cc222255;height:28px"></div></div><div class="bar-label" style="padding-top:6px">Year 1</div><div class="bar-val">₹1.2Cr</div></div>
+      <div class="bar-col"><div style="display:flex;flex-direction:column;justify-content:flex-end;height:66px"><div class="bar" style="background:#cc222288;height:50px"></div></div><div class="bar-label" style="padding-top:6px">Year 2</div><div class="bar-val">₹2.4Cr</div></div>
+      <div class="bar-col"><div style="display:flex;flex-direction:column;justify-content:flex-end;height:66px"><div class="bar" style="background:var(--red);height:66px"></div></div><div class="bar-label" style="padding-top:6px">Year 3</div><div class="bar-val">₹3.6Cr</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px">
+      <div style="background:var(--dark3);border-radius:8px;padding:12px;font-size:12px"><div style="color:var(--text3);margin-bottom:4px">Phase 1 (0–3 mo)</div><div style="color:var(--text);font-weight:600">Prototype + App</div></div>
+      <div style="background:var(--dark3);border-radius:8px;padding:12px;font-size:12px"><div style="color:var(--text3);margin-bottom:4px">Phase 2 (3–6 mo)</div><div style="color:var(--text);font-weight:600">500–1000 units</div></div>
+      <div style="background:var(--dark3);border-radius:8px;padding:12px;font-size:12px"><div style="color:var(--text3);margin-bottom:4px">Phase 3 (6–12 mo)</div><div style="color:var(--text);font-weight:600">5000+ + Gov launch</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════ CONTACT FORM ═══════ -->
+<div id="contact">
+<div class="contact-wrap">
+
+  <!-- Founder -->
+  <div class="founder-info">
+    <div class="founder-photo-wrap">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAcFBQYFBAcGBgYIBwcICxILCwoKCxYPEA0SGhYbGhkWGRgcICgiHB4mHhgZIzAkJiorLS4tGyIyNTEsNSgsLSz/2wBDAQcICAsJCxULCxUsHRkdLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCz/wAARCAF8ASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCtil28dadSZr7a7PMu2Nx70badmlouwuxoX3pQuT1pRRmldhqwIxSEU7tR2pqRIzFO20ClNNsrUAKdim4p+KgGhu3NGwU+lFFxEeyjZUopafMwuyHZSbKmNAFPmHci2Uvl+9SE0UuZjIvL96NnvUuKMUczGmReXx1pQlS9qbx6UczBajNgo2in8elGKLssZtFG0U8CjFK4EePalxTttLincBoWnbaXFKBUgIFp4FABpQKQrD4+DVhW461XHAqRO1cOIw8am4tSQjNNMfPSpAKfjHavErZfFvQZhUUo96WvrBWY2lpaDigVmhKWkpaADFLSUtMdheKBSAU4c0gsApcUCnUh2CilxRigLISinYpcUDsN5oyadilxQJpDOaTmpMUYoCyRHzRzUlFAWI6MVJSYoGNxRg07FGKAG0U7FGKQDaKdilC5OKLgIFz0qRIyakSPmrCIAM15eLx0aCuTe+hAsXtTvJ56VMWAppk5r5erxCk7I0jTY1YealWGkVuafvxXLPP29jRUhwiFO2Comn2ioDeYNc/9vPqJ07GVikp3NJX6iZCUuKKXNOwABS4pO9OxmpAAOKTFOxQBzRcBMU4ClxTgOKVwEApdtOFLSuA3bS4p1IWAGScAUrgG00hKqMlgPxrn9X8UWdmfKSYu5/uc4/GuS1LXbi83LE6JH0yy7i/b+I8flXNUxUKe5pGm5HoNxrFharmW6jUfXNUj4s0jIAuGYnptjY/0rzy3dzMrveJG4UojSvvK9uFxgH0wKtp4dF3++vr93RxhGMhZjzyABnGK45ZiltE3VBHYTeNdJhXJkbPYFcZ+lRf8JgZXxbadLIMZJkcR4/OsOLw3oVqAv2WSZ+7SKSM4zxyAfrU622lxsVhsRkHKtFwD79GA/GsXmM2tECoo3D4iuAFI06WQMu4CNgW/I4qu3ja1iVjPa3cJUEkPH6U+CNFjQeXtII+eONlwccdOOlOlsrnDytKlxGBwskJPHsQQc1EcxqdUN0YiweNNKlWN3d4lk+6XTAP49K1l1fT2UMLuMAjIycVy17No8Dsl3PFbynDbiAXA9uMgc1VttP0KRJGa7OoxsMsjXKyeYc4GAxyCPYitVmXeIvYJ7Hcrd27ruSVWX1BzUiyxsOGFcFPZaPY8Wkt7p5GOCZAoyffj8fpV2yv7y3h8x7tL6D++V2Mo9cjgiuqOOhIydJo7QYPQ0h61h6frMV4pMbHKnDKeoNasVwGPzV2RmmZNWJ8U5V+akU56GpFU9aJuyAmjGMVJnimRrinsMCvic4no0iYrUgemc5pzvg0m4V+b1m+bQ7oslSnGo05qXAxVU5No00KsxNUX3bzWjJHuJqEwZq3oZtFPBoxSbqXdX78cdg20uBSbhRmi7Af0paaDmlBpALQAaWgGgBQKcKQc04DFIBQKCQoyxwKq6hqVtpVq1xdSBEX8z7V5f4k8cXWqStBas0MGcbV6n6n+lYVKsae5UYuR3mq+MtL00mNZRPMP4I+f16Vw+p+KbzVrjD3DwW38SR9h7nvXMSGTK4jfeo+ZnO0D0wPpTjJI7BriYKvXpx9cd68yripT+HQ6YQSNy0NpNN5BM08W8t8mFHTn0/Mn1q/BdWFlGRILYDOTGoMxf2yMAfTJFcqtzB5TYR5sD5mkPy/go/qTUEup3bsUhYwqeiRAL/KuF66munU7OTxGsbYWGGPGXCLAiAY9QaX/AISG8kj8yKAzM+AsrRABeegPH9K4aKG5mDMH2rH8zNkZX3rRsbO1RlmnmkkwMgs4Vf5NmpbS0Dm0tY6RLK8u5WuZbG5fJz5Yu9659Suc/hWzY6Bp0EJmFsIJQcMs27IPXG7d8orCPkoD5UEcCtGMFLhl3ZGB2GPqRxmucnlv7aaQw3pBPLA3akH2681g3fTYpNJanpscsVshxIBITgeYNpbPYNwpP45NR6lPHd24mt7hraYDhyceZj+FlPv3ryJ9RvN0m6ZsSffXPyt9R0qQXk7RCSW4JVmCkFtzEDvj2oQKS6nQX3iDUbK4NrqtlFeW68bJgT+KvkkdeoNOa00bVZ1SxvLnS5mAcW9wAwyR/AxI/DJrAW3uJ7trO2Z7nccjywWDjs2AM9KtSeG9XdhGlncyBe7RMmPb5sVXQm/Y2RY+JLq4eGLUXnMXG45X0wST0z/SiOHWrFRcO0VuxBLESqQ3Ykr0GferGnaZ4ktrBYnljgZuFSc7WX3yM5GOxqCext3eT7UTMcZ/0FI1XOO6gkj1zgVKdikiO01nULC/a7+zrKW4/dAFG74wOP613mheILbWU8oI1tdqMmNzj64z1rziC70zTWwIZZJU5UTYTBPt6+/6VUuNc1NNkwkWLLfKUAyCO+RXfRxHLuYzjc9whuMDkjg+taEMquByK8T8P+LdQ+2iG5v0VJGyWnBIJ92HK/XBrv4tdlsZRFcoyOVMgBIIZR3U9GHuOPpXoqsqkbJnO4HcKKcw4rPsdThuoI5UkVkkUFSD1q+HVhwc18zmdCTTMrcrKsoxUBY1bmXiqZIBr87xFPkkdEZFmFulWMZ6VTicCpxMAKiLsbIkK4FMPWgygiojIM1jObvZFaGfgelGB6U6kr+hLnAJgelGBTqTFFwDntSilxSgUXHcTBNOApe1KKLjEAonmjtrd5ZGCogySe1KeBk8VwPjLxOJd1pbbpIkOHKrkMfT6VjVqKEbspRbZznjDW5tZvAzOUt0yI0B/XFcsVKsuAMN78n61buGeebJzu6lj2qi/wApwp4/WvCqVHKV2dKSSsPadycKx4/IUmwOwJzjuW7+9QgEnaASfahuBjOTWXMgJXuAvEZ6fhURmfGN3X0pAmeWYAVYhjDyKgQkE/wjJJrO8mPcZBb3NzxDAz/Rc109p4b1+5VfMUxQMNu0XKIAB04JqlY3Vtp6mW5ALAYRc7mDf3tue34UT+InlUiF/LLMSZHCk/gqjAqG/MaRR1TR76ynZZlEgH8SHIrMII6girdxeyzMP3kshX+ORixP0Haqp3McnJJ9agVhtFOEbk4CHP0pwtpiGIjPyDLe1AWY1JZIjmN2Q+qnFOW5mWYSiRjIOQxOTTNp9DQVYHBBzQBLLeXE4AklYgdBniotzf3jQFJOACakHlpGweNy+MA7sAH6YoDUni1KRE2SKJl/2utRTzB5CUJCnseKgooEKCQcjirQvZZbZYJp5NkIJiBJIUnqB6A1UoqlJrYDqvDlxctdadBby7BNOFJMvOR147DHFe52sLRoPnJA7mvAvC2qQ6DqUWo3ERkkiP7lWOApPVunPHSvR7T4kx3lyTBBuRjgB8Ljtngmur291ZxuZThc9AIDLg81QuIwvI6VTi8RwmBGlQxsyg5GWUZ6fMBini9WdtmeTXyebYVTfMlYzUWhfN20w3OD1qZrUld1U5oitfOPDNblNkxu+OtQm8561QlZl6VVaZwetQqKZPMdFikxS4pcV+7XDQbilpcGjGKLkqIClAoFKFplJIUDNOAoAwc0McJmk2Ukcl438Srpdj9jt2zdT8AA/dHrXmV5KBsBc5HJCcZrQ8U3SXXii6cl3wxVcHHTisC8nzNheQMAZrwMVWlKXkdUIqKuTzuREEChF6nB5z9aolS79OT0FW5M7UiBLPjkehqcWP2exdsb5HIUfU158qhfLfYp20gibaEU5zvbJBI9PTFNlAnO/wCVB0wFwAKsXdm1qywNxgZaqpfDZUcDsaSkS42E2BACwIzTfMZjhMjt70oV7iXnljW3p2hSzEfKamdSy1NadGVTRbGTDZPJ0XNadvo7H+Ak+4rrbLw4QFJSt620VFAHljpXHKv2PRhhEtzh4fDrOgOwflWhbeFXdh8qge9d1Fp0S4+TJHvVuO3jQ/cx+tZe1kzb2ETl4/CVnDbl3yXIAU4GM96rt4VjuGKxoWx34Fdstr5hLCIlV69qnW2iZQPKjQDv1P1ovLe5fs47WPPX8EwRAMCN4zzkcGqS+E5UdvLj6n5jj7wr1eGzhHRY+R1c9f61YEOnwNkne2MZUYH5Gjnkg9hF9Dy+38KWsce64tcEHIdFPH5GtSPQdNYSb4oLhXBJaYYfP+8B/MV2V4lvKcQoQR3GP6Vny6dlcnHIqLyl1BwjHSx5DrnhVbXzJ7cOkRb5VPPH171yzxvG211KkdjXu15pHnQ7HUMF6ZFcH4k0eO3jeRoSzg5GDjAx0rrpVXtI82vh18UTgxjIzwKVgAxCncOx9ae8TKc4OD+dIqkvlV3gHoe9dZ5w0szHLEk+9behT/Yp1nKAYzy6ZB49P8/Wq6w22wOwkhideA2XAbv0xx+H1qGOWBHCjewBPIGCR6Z601qBv3Fo+mQ297KHuLS4O5vLbDqcHjI6eo6gj8a6rwfq8l5fxxpIbi3VxGjsNrAYyARk8/4Vj6ddXWqeFb2w8mW7FrGZI+AiwJg5JbqexHXJBHetv4WWS/8ACQ3irIsqG2hmPAOHYZPTpg5qatF1dH0M57HqK2+YxxVO5sxzxW0VCJWbezKoJrwMfCEVZGKZgXFqozxWdJbjeeK0rm6UsckVnvdJvPIr5xJ30HLyNmjmlPtSZr9wQtQFHegnNL2o2KSYAU6kFKBVFqI4UOMxn6UoHFP25BqWwZ4D4kje3126Q8MJW/nWXApkuF7812/xD0l4teM6phJkDZA7jg/0ql4Y8PfamM8uAgIGD3r53Fe43c6qUHKxHpmgTT4kaMkE5B7GutTwuJLGLbGC6SrJjPXB5H9a27O3W3URoo2jA3EfyrUh47/nXiTm2epTppI8u8U6FcwbpGhIPGdvTB71y8dk77kKnfmvoCSNJVKyIrgjGGGa52XwnYjUHuY1KFxyvUZ9aca9lZjeGTlc4jQfDm4h3AyK7ey0ZIlHy9PatG102OEhEQH8K0Vgb7qjLdOOa5Zzcmd9OEYKyKkNsF4GOOp9Kspb7vlAq1Hp8v8AFgd8VYSwJGSwFLUvluUhZj++M+g5NPFi27G7H1HNXQpU7IQGYdeMAfWpY4CnLEs3XJo5mNQKo0vby0o9gRmp2sFCYe5kb2UACpwrH1I+lBRu1HMyuVFU6ZAP43J6c08adCR8u0H3FPO7JzSM7DHWodRl8ggssHgpj/dFOEMiNghT25601ZTu7ipA56UKoJ0yN4A6bXjLD9axdS0C3vYzGyKuRgZ4NdBu55JFUr+XamV6j17VXO0c1Smmjy/WPCVtbWM6lD5qncrFsEDuBxz7859K4+TQ7aSFWhmEcoGck/Kx9MHkEf1FekeJWeSJsKCAwJRx09/ce9cXBao1wDIG8ljyq/eU54x/jXpUpNxPErU0mZb6dM4BcKxjHI2cAeuRwc+uKW3tbUIrRrIW3Yc+WQQfQEMQfyq5qU8wfaBIZFYuGY8nPrjjPWqdpdfaJPIX55W+RS2SOTgfT866krnI9D0DwxNHYeBtXvcho0Qp5SIeWI4JPX2PpgV0Pwx0QaLoDXE8QS6usGTjpjoKz7Wz/wBDs/C0LFIrNxPfyo25WfORED355NdJLqMcCCOPhVGBiuLMMyp0Yeyg9TkqS1sa1zfKgPNcrrGsKoIDVX1LVG2nBrkry7eVz1r5rmliHdmXMWJ9VkeQ7STSB7hxnB5qLT7cyygkZro0tVCD5RXZDDxsPmOgxRinH3pOK/ULnShMClFFApjHAcU4UgpRSAdinqOKaKkUcUhM5Lx/ZmfSoJAOUlA/A8UmgWCxaehIwD+pra8SWputBuABlkG8fUHNRW6eTaxoOAqivn81+JWPTwa0ZIFRQAB06YpV49aci/IT/kVTk1TToCwkvIlK8n5uleFyts9G6Roqcg0vl7mAzxWVF4l0t2IW5jwOpJq5DqtpLuPnKqr1/wDr0nCxcZx7mlDbFujFV9fX6VfhjijX5BgDqazYtUgICrKrHp8vNSrcxbzIzc+mcisWmtzpjJM1UKMMKnHqe9SCEv1YY9FGBVBL9CByPz4qxDe7nKbDjsc8GhSXUbT6E5hVHJRQMjtS7B3pvnKe9DzqP4gKd0TZjwqgdAKUhduKrvKwXIAbn6UjygY2k0c6Q+RscyJ9KieMHpzSeYc81ICSM4PNZtpmqTiVzEB0o2YNWCNx5qNkHXvU8o+YYUbHWqE5ZiRg8d+nNaBJz6AUxnid/L/ixnGKpIznG5zl5pqXEZBGRt6dPy/wrjdY0waeC6Lt4OG/unFej3SARsV7CuU8QQM9sNjH3HXI9K6aU7aHl4imkjy6+kkilkUnAdeATn8c13fw68JIIF13VkUJGd1sp7n+8R/Kubi0o6prqRciKPlzjkD0969FMs0qRwKcRRgKqjoAKnF5l9XXLD4vyPBrT6FuW5jUuIFCh2LMR/ET1JqoweQ55q1b2DsASDWlFpvHSvlW5VJOct2cjRyl3bO5IxVRNJZjytds+mKDkrTPsaKOlb06yhoVyMwrPThCAdtXvkXir5hAHSqM0J8w4rthiroORl/mkpxGKMV+rXOpIQUvSjFLjincOUUU8U0CnCk2UkLwATWdNq+y4MMYBdeTmtMLuGK5O4RhrzqPXOfSvFzPE1KKj7N7np4ChTrOXP0NUa5FcxSWs0ZjlcYQYyr/AEPbj1onk2IzAZx0GcZqvFFH54lGCVqaTBXmvDq4mdVJz6HZGjGDfIc5fQatqTbWkEUf9xG4/Ed6oDwdJKrfaGRieVZeCK6p7mKFSTjjtWHfa5Lkny7gx9BHajLt9W7fhXOqs3pEp0Y7yMebwRcxqTHcJgcqWGKqzaTqVodwvoT1yfNGSO+QadcavdSTiNdFe3jY8zXYeXb77R1rM1VpC0wh1CJ1XlBFYsm/j6cfnXTH2j3aOSfs47Jk+/VYSEiuFkGScI4xkj0B61esrnWUdRL520EHJzXD7rhm/eJgE4LFMYrW0jUrq2nEdrdsr5/1TtlH9h6GnODsTTqRb6o9IsNTuRIInPPByTXU2l8fLVm+mBXI6Hfxagql4Ako6gjkGuvttOkuVBVcA+grzJfFax7EbpaDr/V/sybiAQRkEHiuY1DxjIrhYwDzzk1teIfD17b6e0ifOqjJXOSRXmF7eGB28wVpCnfcidRpaHSzfESaFj8gK+xPJ/wosfiirSsLkRxbiNgJJxk9zjt1rzq71hJCVSAH3NUfOZ2/1ceT2AOa7I4eNtUedLGSTtFnuC/ErR+Ve5hLA4/dsTn3HArUtPGunz52yIyj+IOMfnXgENzaBv31vu/3XK/41pWtxpLnbi7jz/dfNKVCK6Fwxc5dUfQMOv2c4BVwR04659MVcjmt7jmKVW9ga8Stfsl2Y1tb8xtGMKm4qR+BrVi/teCQFLw4Dbhk9Pbnt7Vi4R7nVGtLqj1iVNp9KgwM8VzGi6xqDsI7ieORehDZB/D/AArpY338gHFZONjpjU5kMnQPG1cpqkBdMYz6V2MikxkcVipZfbblIVGWkcL07Z5P5VpTjzSsceKWlzE0fQjbRGWRcSTHd+Hat2CyCkcV0N9o2ZhLCVCABQpOMYqsLRovvCvmMdRrwqyc0z5/2Mpe9YS3gAA4q6sYA6VCjhKcbgDivOeJ5VYjkSFljBFVHhGelWGmB6VHu3GueWIbZaiiq0Ge1QNZknOK0wBTtq1osRYrkRjZJ60tJS1+9EBS0lPC5FF7CAdKUHml28CkA+bFJO47ki8iuf1Apb6jNI3BPGa6BRha5HxUZWlkMeTggcV4ebK9Nep6WW/xGn2LllKk0LSpjDMR+VTNk8VQ0DP9hWhPVk3HPqSa01TjpXgNaWPSvd3KUtuZDyMiohbCA7gh/CtZIgFAJJ96k8gN2zS5TRGekxVMbcj0NVrgpKD+5Uk+1bH2MH+GkNmuPu1DiWmjkbrSvtHLQpj/AGhVeDQ4EBL2sT+2wf5FdsLFDxjJq/Z6VGGVpIxjrtx1+tPn5dA5E9TE0HQjPci7nQxxjoO7/wD1q7eMKAqqMAdAKi2AY7CpkDBScfnSSu7jlaw+cpIpSQbl7gmvF/H3hxbTWH8tSLeYb4z/ADFevyA1S1LTYNUsjbzqCRyjY6GhT5ZXJdJSjY+cJdK54fH4VPp9ncWkpeGVVLDaSUB4Nehal4OaK4by1PB6dxWW3h906xkV1KtdaM4vqkb3aOVOhXc9skCyRtHGSV+QA8+p61Gvhi/UH5Y2PQfNjHvXXLpMyH5SfxqT+zr3I4LA9wKPbSH9Sp7nJ/2fqdvFsuIkmjHvll+hrZ0fVZ41+z3DPheFLdcV0Vp4durtwI4Xkb2zxXQWXgVFG+9cZ/uryfzrOc01qa06DhszI0qaaWdTGueevau8stxiy4Cj0FRRWMVrEEhQbF4AFWEHHHGO1c97nWoWHlQAdvAPNQ6InlSy3RO0IPLXPqetSZJPsK5G71x2ZrRbhYiuQq59+ppObjrEXslUlZnU6n4hhtFO1vtFw33Ez/nArmrLxVqGoahGJWQI5I8tR0qjpVmf7QDOzTSOeT1NJ4f0508Q3kkoKrBMyKD65/wrnrXlTbkzqm6VGnK62R24YlQTUbvipFwVqKXABr4+dFp3Phpzu7kTXG3qaVbr3rOupgp61FBPk9aPZXVzLndzejmLGrScrWdanOK0FPy1x1FZnRBmTtoxzjNPxS4r+hOYi7GBPenjpRwKUEUtw1A/dzSIPmBp3WnBaL2Q0h2M8Vzlzg3zhxuXf0NdKFyMVj6lpsgnMyjKsecdq8nMYylBW6HoYRqMmmUbNVS3RExtXIGOnU1eiUt0rN07b9mIUlgsrrk/7xrRifAr51s9aKuXoIEOCwz7VopHCcfuFP6VnxP6VcilAxWfMdiirF1La2bBaM/gTUhtLccgfmc1Re+jiGWYDFUzrAll8uLLE+hqZVUR7N7mjO8MACRqCx6ADJNMjilEyvMwB67O4+tQC5W3lDEAvtzuY9B7VVXVoWuiPtULOT90SLn8s0k1uxpG+uD1FWQibM7qxxe7Rkgik/teJSMlufQVaqxiZypSlsaMiDtVWXcgJ2sQPQVA+sw7uNzfQVbt7yGaMFWGfSovGbtcpRlFXsV42tL5RvAcjv0Iqc6Xp0oO+33E99xzWNrZWy1OO4gYKZE3Mo74OM1estSW4jDKee4pQnyOzKlT5leJL/wj2mF8+Qf++6nj0rT4B8tqhyP4uaVZcjOR+FP8zjrXRzowcZLqIyoi7Y0VF9FGKrMrbuasMwPeombJz2rOTuaw0IcYPNNbjpUjGoZnAQYIxUmt9BAdzBc43Hb9M15brGmz6brV1bylpGjkI3/3hnINeivJI8kccJXzZHwpY8DHOaku/C1tdzfaL26eSVvvBVC5pXKoVFTld9Tm/Bqzz3gfadqjG41rXq7dYdYhwXLuR3Y1twrBp/l2lnbMM/xY4HuTSGxUSFiMknrXPUoznFqB5OcYltcq0uVY2baM1FPIQprRNuMcCqF7AQhrxq9Fw+I+Yucrq14YmPNU7PVBu5al1qJmLVzgWVJflBrajRhOBm073PQ7PVFwPmrTXUQR1rjNJgmkAJzXSR2r+WODXlV6EIysbRcjT20bafikIxX7XzG40IKNgp1KKd2FxUWnhcULxTsVDZaYopT92kAzSkHFTuO5yZljTVL63TC7Jc4HbIBq0n3RWJdM6+LdQAwCxU49sDmtaFuAPTivlMUuWq0e7h5Xgi9HIV6dKSW6Kr1NRlvlqhcTgOA3QmuCR3xaHk3V9dCCAH5up7Ae9dJZadaaZbF5CGcLuaRv6Vyd/wCIF0fNrAFadvvnnj2/LrVF9S1TVUECRFQ3LH19z7e1aQp6XZjUr30Ruanq9kJS0jrzkgDsK5m+v/DN+w+0GPcpyHUYP6VT1nw1f3aqkZZ9gLc9WPp/9asF/BOrEswTgdCT19hXQqcHrc53Vqp6RPQbXxLYWaIkV6JYQMbcksPoTTdX8YW1rZM9sPMkYfKXGFX6+tcAnhTUoWXzQFUHjHJNT6zo2oS2iBI3I7jIzUKhHm3NHWqcrfLqVpfEN7f3vmTanchgflCuUA+gGBXS6XrWrnakd79oLYC+YoY+nWuE/wCEe1IOP3Dg+9elfDzwnf2VwuoalGUWPmOM9ST0Y+gHX61rVhBRMqNepezR6C+jmTSFtpW3zeX80h678cn865izlms52hkG10OCK6r+1Ihkk7cHqfTGaytTSC7zcxY3jqR3rhlY7qc2tGW7S9V1GPxFXfNXGc1zMM23ucj0q6lwHyHYlSMEUlKxdrs2Q4I4pCTVKK5RRsQn5RTxPu5xVKQaInY4BwaoXE259gPA61NLPtXismSR5XWGH/WzMEBPTJrSEXN2RhVqqKNLSjDcTyyrLtMf7tOe/wDEf6Vpi3LMHaXJFRjw5ZJGghMkLqPmZT94+pB71PDpbIcNcO6+mMV0SwdSL1Ryxx1FR3/AkhDSP7CpzHnrUqRKi7VGBQ2BW7rU8PCzPExVX287rYrsgA6Vn3qAoRitGRhVCf5q+RzDFxqP3TlUDkNSs/MY8Zqhb6SrS8rXWzWoftUcFoqP0rzI4lxjYfJqJp2mpGg+UVrLaqF6UQKAABVjNcFWtzM6IwsZn4Uh5p2KNor93uZ2G4pcUu0UuPSncVmOA4FPApB2pe9SykKBTwuRTRzUi1EnYpHD+LYfsGu2l+qnbKPLcD+LH/1v5UqSBAXz8uetb/irSW1XRJYohmZPnj+o7fjXE6PqHmQPa3X+sXI+fgt/+qvn8fSanznpYWppys6KOZZBwajurVWhMrHGz5seuKrW8bQqNzhieSQODVm6mBtGJI4U8k8CvIe56ilochL5+oanJJgIzNzjk/jWwJPEdjbA2yWk8I6xkFW/OpdIAjlwUyG+YHHrzya6CIDGFwQa3k+5lAxo9RvJ7cH7KIpMcq7fyxVWbVL1VIawLkdDG3+NdE9qp5AwfT1qrLasnzBenbGauPIz0aTT3OdfXbJ4isySwTejqRj8ao/21a7wu6Vueyk10MwxNhoEbPHK5zWzpkOnWsfnXUMc0p5UbcKvp9TVWgups6elzlrHxDZWcqyukrEdN0ZOP0rcj8bRmPf9qiHPPmHBrojrCXKCPyYgg43OAFH5iqd5pGgaovlzxeY7dfIXbk/59qzl7Pucs7rdHP3WuaVqds8cV7GJ+oVZM81y2l+I7qz1V7WdmYl8gk9R05rsrr4WabcHfZRG3HUF2+bNc+PCF9Dq6iVAfK+Us3Xb/WhKCTRwyUm00bsMu98gHFX4TnAPFWLbTre2jDEZOPWo5mjTJHrXJvsdfPZaj0JRsMQOOvTNJLeLGOGwe2elULi7McLc+w571QmmZsfNuCnJ/LgVcYmE6vYvz6kplWEScsM49sZFXPCFs19cfbnHyoTsB9ema4qS6l1DWYLWH5zIxXaB7DFev6NpiaZpsVuvJVfmPqe9eph1GmueR4+Kqt6IuYzS8AU5iFFU558d68rH5qo6ROJRuWGlAFQST1Se5JPWozNnvXyeIx0qmxVkiw8haoSQTzUbTYFV2uMNXm+9J3ZDki6VBqMoAajWcFetRyXYUHJraML7i5iwZRHxSi5BHWsW6vdzfKadFMxjBzVPDp6jVQ06Me1OxRX7fdFCAUuKXilFFwEAp4FIKcMUmxigVIo6UwU4GpGSYzXLeIPCSXcpvbIBLgcso6P/AJ/WuoDCnD3rGpTU1aRSk4u6PPLe6UERSKIiny7SMEH3pjzecCA67B85OMj24711ut+GYdWRpIX+z3P94Dhv94V5zqCXdhdf2XIDFKp27QT83upPFeDWwjpu62PRhiOZWLK3ASdssVTOfnbJ57ntk10Vpdq8aEHqOM8Vx9vhyyuoTawGSeWPv6CtW0mZRiJdwA5foPr61zSjc1pzsdR54YDNQ3NwI0yrdO1ZUGpOzlZAqlTj71WVlF4ioEOW42tzUezOuNTsVZdYG/YI1cg8kdqF1N3GFUZPpWla+D2lkJkeKIPn6j8q27LwhY2wBkleVgenQf40OC6GntJLdmFYQS3hBc7VrpLGGG0XCDLdz3q8LGCMYjRVHoBUcqxIM5XP5Vi4sfNcd9vC8NnIrN1NxPucYJUbcioNQ1ZbZcB8+nIxWR/abOgDMPmYjJPHpRrbUyckidZmkJUtnHFRSN8h4yBx1quJQhPzYA61TudRWNGAwRgAHPvRGLMpzRHdkkl5D8m7HJ4FYt7qhEbsjYjGR9AOpx70t7dySTyO7ERopI/DAOKr6d4fm1yeOScvDaZOFPV8nt6DFdKtFXkcrbk7I6j4Z6UbieTW7hSEUlIM9/U/0r0z7QoHWufs/J0+yjtbdBHHEu1VHapDeH1rwa+PnUbSeh58krmrNcjHWqMsu49apvdZ70wTZ714FfmnK7IbROx5pMUxWzUmamNPuYsNuarzRkDIqzvFRyOCK2UUQ1coNK0a96oXN4SetX7gBhVFrPec1pFJbmTuV43MhrShBEY4pLewwelX1gCrioqzXQSTJPtQ9aPtQ9axReg96cLoetfs3tYsvmZs/ah60fah61kfafQ4pRN70/aRDmZrfah60v2oetZPne9IZ8DrT54i5mbIux60oux61hfaT608XBPel7SIc7N4XY9akF0D3rBE5A604XeO9c9SqjWMn1OgW5A71g+ILS21GZo7iJZFIBGRyD6g9jSm+VRktUP2j7SPNzweleTjKt42PRwi5pHK3nhu6jRDaSmVUbgdHVSefYn9apm9iiBhjjMMUYYyb/vkj19+K7bIUZYgAdSaqajpFpqkYW5jOQQdy8Nx715iq/zHe6X8pydixnQNK/lwDHbPJGf5V02nTw2irKAFOCRhc1lXnh25s90lpi5ixxF0Ye3v2qKN7+GE/abWcvtIGAOuOvt7/lVSalsxRbhujpk18JuJ3Epxx/D9asxeId3RwMMTgt1x2rgbieUyRr5NwjSsdzYH3eOcD8afBeRtOoZJ44kfc2V56ccetLkL+sM7u58WwwHG8Mx98ZrFm8UiSQ7NzZACnP3ifSufmnjYq7xSuzZ4ReB7ZqELI135scBhX+AMfucY/P3oUYrczlVnJ6G4ZJLyKSSR9oXH1Oeg/LNZ63rOwt3PQE4UdqSSSV4PKOxRkHg9MVWFtHu3tycEUJoOSbL8t48sDfON5OCo6n1qKSNrhUCHbtzn6/4UQqgGApIq5AoIGFyfrUc1tjVUr7iWmnxbR5g8xu7N35zW/p8QWTfjhRx9apxIAPU1q2qAWhkkxHj5iSccDvWFW8oOwVItQfKh7Fgck1E8u0VJNkRh1IZGGQwOQazZpsZr5u1nZngOb6kpuTuqzFLurFa5w1WreckiicNLmXMmbcbZFShsVnxz8cmpGuQK5nfoNstO+FzVSS46jNV57zjGaoPdAHOaunBkc5d875+TV2JkK54rmJtQw3BpRrO1OTXQ6MmTzHVLOqnqKcbpc9q5BdYLtw1TjUGI61EsPLqTzllbRh61Ktsc1dwBRu9q+9VVo7+RFYWxp4gNTeZjtSiWtFXaIcERi3NIbc1YEgNKXFX7d9xchWW1BqZbSpEYZqwhU1Ua/cXIQizyOBUM1mIwWY7R6mtaMqorkvEmoSy3fkpIEjQZb3qa2IjCPMw5SpqepW9ujbGaZh0Ve9bUP+oQEBflHA7GuNuZI1AJILMQMkV1lvLujU/yryZTdTVnpYNW1LI9Dz9alDVGpJ96kXpWDR6aY4kelUbvpwSDVxuBxVWcZGCOtZdTRamQwBJB61G4AXgjH0q68PJNV5YiMjHSruVZFJxz3qJlOMhSfxq2YW9OtNaIjnHHancOUpFWz91aTY7HAbH0q4YQcZFAiG7piq5h2Iooeckknpya0LfgDjHPempGm0ZqzHDvO0Hg8daTl3Ha+hesoTJIM8jrWqY0eKSJwDG6mMj2IxVe2iEcKgDAP5mtKx0u4vSCB5cP989Pw9azi5SdomjUKcG5vQwfAel3BkutMldnihJzvH3Ov8+Kj16zk06/eBu3Q+or0q0tYLGAxW4ALHLN3Y+prnvGun/adNF3GmZIPvY7rTxWB9z2q3PjMRNN+7sefjls1bibbVJG3GpQ5FeJJdDlUrGiktKXLVni4C96sR3Ct3rFwaK5riTk1m3UhVSRV+4lXHWsi8uF2kZrooxuRsZk92d+KryXZK9ar3Uo3nBqoZMnivahSVhGpb3BBzmtFb0Ba56OUjip/PaonRTYJHqg5p4jFORKmCV7ahoesVzHTClWitMK81DjYCAIaRhipzgCqs77QawlOw7CGXbQt6FPNZVzfBM81my6mu771efUrTT0MpOx2cF0JflB5Nch4lja01GTzkZQTuBI6j29afaawqTKd3cV6S8UVxCqTxJJlRlXUMP1rbDt17xn0MJVOx4TJeGa9AA2hD93Oefc+tdlpl6GgXnpXUX3gXQr7LJaCzk/v2/yfmvQ/lXLal4ZvvD5Mn/HxadfNQfd/wB4dvr0rrlSstDuwteKXK9DailDKCKsK2cVzlpfbSATjPFbEExYZz+VcstD1Yu5bcmoHxTi5NRsSayepsiBwGPNRlc9vxqcqc8c0LZXc5xHbyEeu3A/Wmot7ETqRjuyq3oBxUMhxkYFa8Xh6+mPzeVED/ebJ/SrcXg7dgy3n4Imf5mr5LbmDx1GOnMcxhSaTaCehI9q69fC+mxffmnlI7BgP5CtSx0LTolLpYpnHBmy/Prg1Sp3MpZlTWxw9taT3DhYYi7H+FVJJ/Kuk0zwnenEk6CLn+PqPwH9a6kbYVKIMDptUBV/IUv2iQjaWwPbitoYeL+I55ZjN/CVbfSLS3YFz5zj/np0/L/GtDzDgAYA6VXJyCSQB3oVy4+Q4X+8e/0rpp04w2R59XEVKzvN3LG7YR3Y9AKVo1ljZJBuDjDfSok2qMgHJ6k9TUinuSQB3JrodmrM53qjzXVtIOmahLDj5QcqfUdqypTtr0jxHpjalphmiXM8fKgdSteXXsjQuyuCrDsa+SxGFlRquPToZXWxHNKFGc1TOpeW3Wql5ecEZrHmujuJzXRSw/MtSL6m/LqpK9azLi+Z+Aay2usnrT0ctXXHDqGpVxZNznJNSQQlmp8cJetSytRuGac6iiiUQx2RIzinGzPYGuigsV2CnGyXNec8VqaXOvU4p+6oxTj0r6bmPWsKXpmeaac4pFyTwDUSTlsNNLcJDxWfdt8p5rSaF2HTH1qtPpRuFIM4TPouaFga9T4YmNTFUo7s4rV7oRbjurJ0ux1DxBdmOyX92pw8zcIn4+vtXeL4R04y+ZdeZdH+652r+Qrbhjit4lhgiSKNeiIoAH4V20Mnd+aqedVxSlpEy9E8KWOlMkzlrq4XkPJ0B9l/xrsIyCvPIPIrIVsfWtK2mWSMIWww4rqxGGhThamrHPCeurLGG7N+BqXcrIVlT5SMEEZBFQ7tv3uPftUqtzmvJeh18x594t8N/wBkBtTsD/oTN+8jHPlE9x/s/wAqztK1LdhCeteoXEMNxBJFLErxyKVdSOGHcGvI7vR59P8AHCaHa/P57gwFv7h7n6DOfpXNUgpHp4TFfZl0OwsrWW+ciIfKPvOegrZg0a3hOZSZj78D8hVq1tUsbRLeFgEUdSOW9z7mn7Sx5dj7DiudRRNbFzm7RdkIkMUI/dxrH9Bil3jPGWPsM0ojT+7k+/NOziqucMrvcQFzjonrnk07ywT87M3+8ePyox1NMMyBsA5PoBmnZy2MXuTIuCAgC+mBirUZwNoPHtUKCRcHyCB6uQM/hUvzNyz4BH8P+NCvuaJKwMyqvzsE/rTAWJ+UEejMadhV5CDPc5yfzowpPSumMigwCcsdxHqOBUg+bgGoSVQ4754A5J/ClZjvAZimew5Y/hWqdxEhdQdoBZ/QVIoyMyn6KOmaakMzL+7h8peuXPzH8P8AGp0DREkQbn7Etn/9VaWbLUb7j4/lG6RSo6AnjNZWt+F9M1+ItJGFl/56JwfxrXCSMdztg/y+lGCOhIH1rRxjJWkrjcE0eJ+Kfh3qelq89rm7gHOVHI+orzq6WSGQq6shHYjFfWTNn5Wj8z1xXO694G0TxJCfNgWKbHEkYAYfUVh9XitYmLpW2PmiMktWhbqTiux134U6rpEjSWq/a4ByCn3gPpXMC2kt5CkiFGHUEVzVrx3Rm420ZdtY8gVpwAKwqha8Yq8HAArx6urMjWjnwlMe6G7rWU94UXrVJ9Q+Y81hHDts1Tuj1RULdBmpPLAHzECk+b12j2oCnFfoVLK0vjkVUzG/wITaucBcn3pcnoOBTgpxnoKULXqU6FOl8KOCVWdTWTGBc9Pzp2zIp4UdacP07VU52EkQmPA5pu09egqdgDx+dIQO5471zuqyuUg5HA608Db8zYLU4KAM9zSHO/HXjNZzlcOQel1LGuQ5PsRUkd+wGSAp68Dg/hVcjvSRQGWYE8gHAAPWuGpSg9WiruJrPdPGoyFO4ZArKk0mGXxTb635paS2geARBeDuPXP0zx71Fruv2uliJrljlsqiIpdpCPTtWRpfjez1K6FrHHLE/cyY2g5AxkHryK8KSk5NJHbCD5faJHWyXA3EsCv4UguExkZI+lVSzSAKCfmP5Uy7l2p9njGWdcE/3V9aHg6hn9ZV7GgJx6L+LCl83nJZR9KxsHGBjHTipraxubxiIVdlHVugH40/qk4q7Zrzc2xpny25Yl/qeKnt4yeVGMegpbPw/bRxiS6kkdv7gYqB/U1fWCzX5Y7RD7sSePXrS9jJaXKVFvUiJbByDkdzTCeOWH41bVbdThLeJT6hRzUn2hIkzgKB6DGaqNDuzT2TRRVC+SqO+eQQpA/OnLaXMuCxVFPXnr/n8Kt+Z5mPN5PXb2qQBW9vxrdUoj9n3K8djGoO6Z+eoT5R+fX9asKILdPkXaD0AHX/ABprMpbanIHYdBSd85BPT6VokkUo2JBjJ+Xbnn3NODjOAM+9Rc+uB60m4tyvT371QEhfHGcn0A5NIULnLHHcUBgoy1NebAySRnp/nvQA7azghWH400tg4VSW9Qf60YaTrwO47mnrgYA7dKaAXzCeHUY9elYuseENH1xCbq2CTHpLGMH/AOvW0WyMHGaYpkLYB2+3UU2lJWexLjc8f13wBqOiFpbb/TLUfxJ1Ue47Vy0kxjyGyDX0YCC3OAR1I6VzniDwJpGuxMxhFrcHpNCOD9Vrzq2BTfNAwlTPBbm8AB5rLe7O811niv4ea3oJaUR/arXtLFyB9R2riGjYNhgQR2xUwoqGjM9j6HKkcmjac5P4CnH1Y8Dp9abnLHJr7pM86w7GSOcj+dGAeO3f3pN3OAefbtQ0gVeB7AetJspIXOTgf/qp27Aye1MXKrzgk85ppYknjpXPJ3LjoPHAJPXvSdfw/nTC+FOO1LkKnXpWexYEjqcYHFMwewPNN3jzAP7v86cfunA9hSENLMBtXBOcc+tXImCQHJ7BRVSEGSQBTnJwM+g6/nV4gM+wYwnX61hUSeiMJza0Oc8Q+G/7YijeKYw3EZJRjkgZ68Vk6H4He2nhnv5xHHEFbykYsSQcjLYAA6cAc46+vdYA61BxPIRn5EPI9TXP9Wg3zFLHVYw9mthd6xwtK3yrjOPQVSRiTvI+eT5iPT0H4VYMcl9KscKl+eB6n1+nFbFloUMA868xI/8ACg6Kff1pylGJrh6MpPmZV07S2uVEsuVjyMHH3vWt5XUQLGgARBgALimDuQoAx8o9BSZwPu47DHrXFOTk9T1qcOXYcc4ORgU0jB6YJ60AAseeF/U//WpfX2PesrI3FxgYznIpi/M/mE9Puj+tDfMCowCep7ilBAGcAjpijYBy5OOaR3J+UEqe59KaWK/d6mlBx0z7mi9wsPUhQAOB/OnFjjkg/Sot3c8cfpQp43H8vamhPUnIPGR9BS5GcjBJ9aYrFzgetIXyQqDjufStDMe/UdSx96EQdd2Wx16YoAUABRjn8TTiAi5Jzjt2/GgQo3biTwo70wuSfl4A7mgPI5yRx2p4IHB2+lACDcBg5579zShjjgA57YoLKBu6k+nU0BC53OBx/DnigA3lxgjAPGeufpSogU5BIP8AvZpQQG4XcfrwKOVUkjk9B3NO4CybSCXXjoSPSucvvAHhnUrtrmWyiEjfe2MUB/AV0SKWILYPt2FSfKeuD9RQ7PchwTOKb5iO2OlNPGOmegpT3Ofemg55r6JSPItcd9xcZyT3pqEE7s/L296Y7dufm4+gpw6YA9qTkUkLITj5ep4FNwFUAdBTdwY5/CkeTYCcdBnFZPUdgyDJgdF/nTiePSokO1Rnr39/Wmu++VUx15NZPcvoPQYXJJBPJockgKCMk4HH5mlyNuehpkKiaXYhwAcDB/WhyViHoW7ZBbQmbHzH5VH8hVlRsXb1PUn1NLFbz3MmIoyyRcZ7ZrRt9Kx/x88D0BrnlVjE51SlUdzM2SzMI4ELyHoBzj1NXU0dltyJHMWegUZb3NakASCIeUNoz1xg4pvnSNK27AXOBXLKu3sd9LCRWrGxwRWsSQ24CqgAJxycUM258EDHU+/tUjEBCTzxim7QAPX27Vzt3PSjG2wpbknPWkJIXg4J6UhA6npSDOSTwT29KRbQvQYA4FDtgZ64Hp1NAOSQBzTRtc7uu0n8TRa4r2FAJAzS8Zxnt3pQSRnjNNI5AwOnY0h3EXBO4gY7ewpT06/l3pcDGcUyRsJkc44A9TS5R3EMgLYBOd2ORThKDhEwW6VGAqr1J9/ehCIkZxnLHiqJbJWfDGMNj1IqRMKAMcDtVZf3Z+ZsnqeaeJAT36+lLnBRLW4DGOW9aiCkybmOec4pkJ8w7+q5wvv71NkdD+PpVpk2aAMBng/U0jzBfQsegzTZHCrvJ4B9KYgCnzHxu7Ci4rFhOBliNx/lTt3ucfzqsJAzHnI/nTi5ztXOT37Ci4NWJnbnavUdx/D/APXp6BVHBz9agVto2gcUpkyMdqYiYyeg9/pSYc/dXd75xTVYMuCPrUoIxyPyoA4p8k7B+PNBGODWlNpjSSGSIgZHIPSoG0W5kBQtGoPBJOeK9Z10ec6TRS3AncMc4ApVilmB8hGkJ44HT6mteDSLeLmQ+aegHQVfBUBQqhEUcADAFc8sR2LjRvuc6lrJnb5bYXrxVZj8+B9Tx+QrrMKyMrc7hjk1ykkZhlkByG3cf0/SrhV5hTpcohx6df6VGh+9IRyTRIyqDgnHAA9afBbS3EgjjBY9Segx6mnKViVHUj3FidoyQDgYre0XSUgtmmuo90udqIf1P4mkg0yOztgY33XBYYcdM5HAFR+LvE6+FtIS5REnnkk8qMS52KQMs7Y5IHoO5rjq1ex0Qo87sbigQQhUXaM5OPWmmZWIXOc8V5NY/FLW31F47xLW7t8Ef6PGU2ndtHc+vf1FerWkonthK8YRwAMe+Oa5VPmN5UXT0HyTYACDJPQU5SCOgAFVjdCG5MMsLKOqyY4NS+YpOR9MU7DWg4fNJkngdKXIwCMUDHHPH9Ka5AQnpUvQ2Qp5OOAKQkknNHReRyaT2xTQCSE4CqTubgH096dgIoQDgUic5kP0WgHNVcEKzYUkDPpQF2r/ALRpPvPnjjoKcvrgVIxfu8DvTCAzcZ4GKCT90dW5+gpcqOAMDFAEcg3PszxSEB2VuCoBIH6f40E7VLYOT6dfpSqo6Z5HUEd6TBLUa4/d4ODn0NRSH7qAkO5wMDGB3qw+eAVOO/f2qsWAmYMR+7HJPHP+c1DVgloW0fhVB4AGKmDDH6nNU4jnBXkdTzUwJkCpyMjJz2FXGVyWrIei7iXYYUdB/WmuRkcY/wAKlyCNoGB1PpUTckkfXirYl3GOdgBHJPAFKnA255xyaYAGlZs/d+UZ6e+P5fhTlxjHJY0Mm48tk4GADTgrA5NNXCBiTjHemb2K5A46cUm7DSuWVI6U4NgdTVeKRD/F7YoPmudyuFU9Mrmkn3KbsQ596ATlu/akYgdME9s0Zx+FbtmIrMFHHX2pwPY5981GCCR7c08nj0qQFLYI9TwKpahprXDB4yqMB+tWh97OcjpTs49PWqU2noJq5ix6EzTJ57qFXkheSa11iSFCkKBV9B3pMHcxz3xT0XgYzmlKbe5PKkQQKx1UIDwil2PbI4H6n9Kqa94Wg8S2oDuqkbtu4cj3B7GrVm5Jup8DBcxqfZeP/QiauRgqgXPQVm9dDNSad0c3ofw50nQr0XlxOb2VDujjKBI1I6Mw53sPUnGecV06oAGIIJJzjNRlfmVSfvHJ+g/yKV3w6gd6myWxt7RzeokkZZQGyQOfpUC5SQLnjHFXAcgc84qFwd2c5/CmUhwY7c+/5UD5356AelI3yjj0pwwo9jzQVcQ4zjNNOSwQd+SfanHJIweO9Ih4L4+96+nb/Gi4730HE54447dKazYXH8TcClGMgDvTQR5xfHQYAoKTWw4LtGAOB604c4xTRx07UZBYLnHrSuUKCGGTyW/lQQOQRRjkfzprkdc/l2qLgIqbpB6Kc5z1qUoC3UYA5yKZGCDyAccnFSknp6+1CGRsoAMh7c/4VDJDIlrlmJfJc4POf/1fyqc/NIqt0HzNUv8AeyevOabXcl6mGl15TtuABXrx0rUgkEibsn5hkZPOO3+fesfWbV4Ea5QkoeCcevGTU9hdFZAh5XtWEXysEa5PygdfWmOOQg4z1PoKcOm7IO7pikJ+XJz83X6V1ImTIiuOgAA7Cl5SMv37e5PGKVUEriMDt6VXv5CJ0gU4IHr8oJ7n044/GlOairshDJ5fmCL8yr14zk+tWIGQoULjJ75xSR2YWAK0rNx0zSJZwkq+/KA5PPU+lcybbuW3ZEiQqWJZVKevqKkMn90cVCHMu9R0UkVKowoquZ9DBtsrZBfjHFKQMde9NHenHkH6GuxsoB7d+lBIwSf896UDBHpTAdwTPdsUmA5VwFB59aCxxwO360NwhIPPA/WgjJH+9/SlcY0j5QuTxSyy/ZoJJM/dUsPwBOaRj81VtUJaGOPOFkdEbHcF1B/QmmRJ2RYt4mg02zhk++EDN/vH5m/U1N5h7ZpbiRjcZPXGfzP/ANakHUe9I5wViXYnoPl/Lr/n2phfc+4qR+NO/wCXNm7lP8P8aZHIzxFjjNTc2gTD7wGDjrS/dPTJqPo+fWlJJPJ70XNkGCXVew5P+f8APWnqR1pisSzH/aIpSSM/U0hoVzkgdM859BRjjjsMUgPzt+AoJ7UMqKBiVUnPLcChRtGD9c+podQZox7ZpT1FKT0HEFx6kUkfUuB97t7Uen0JoWQtIyEDAdlH0BxSvZD6jxgZqMYLA+nzEZ7f/rpzHAz3JxQiDcTk547+w/xNHKMkDHaNvJPrRvIBc8YpmeTTJfuRp0V3ANUlYCaPG3cer88+nalLHA64PWm5yxU9KABkHvgGgaWgk8Ud3CbeQZQg529a5mMSWtzLbSsQ8R25PGfeuojYkk91baP51jeJYlSOG5GfM3bDz1HWspozlpqWbG+MsiwSdO568dz/AE/GtF5BhiDjjJ/wrmbaRhcLg4JTqPqK6GJi8cYbnJOc85wKcZNaEJ3HoVgVpTwFHNQWikIZWOZXyWPce1SaicWCkcbnUH+dVovvhBwNuTjvXNVm5SsF7FmMM0gYsBGAckDH4Y9aaz7mwBtUcDAqWcBXMQ+6jEAVGvy5x2NbRXQycrsEXZKcd8Ury4YjbkdjmiXhQR34pfwrTlSKirH/2Q==" alt="Rehan Ahmed Khan" id="founder-img"/>
+    </div>
+    <div class="founder-name">Rehan Ahmed Khan</div>
+    <div class="founder-role">Founder · Women Safety Band</div>
+    <p class="founder-bio">A 19-year-old engineering student from Khetri Nagar, Rajasthan who refuses to watch more women live in fear. Building a mission-driven tech solution at the intersection of IoT, cloud, and social impact.</p>
+    <div class="founder-details">
+      <div class="founder-detail"><span>🎓</span><span>B.Tech Electronics, Instrumentation &amp; Control Engg</span></div>
+      <div class="founder-detail"><span>🏛️</span><span>Government Engineering College, Bikaner</span></div>
+      <div class="founder-detail"><span>📅</span><span>Graduating 2028 · Age 19 (born 23 Oct 2006)</span></div>
+      <div class="founder-detail"><span>📍</span><span>Khetri Nagar, Jhunjhunu, Rajasthan</span></div>
+      <div class="founder-detail"><span>📧</span><a href="mailto:rehanmalik7862006@gmail.com" style="color:var(--red3)">rehanmalik7862006@gmail.com</a></div>
+    </div>
+    <div class="founder-links">
+      <a class="founder-link" href="https://www.linkedin.com/in/rehanmalik2786" target="_blank">💼 LinkedIn</a>
+      <a class="founder-link" href="https://rehan-ahmed-khan-porfolio.vercel.app" target="_blank">🌐 Portfolio</a>
+      <a class="founder-link" href="mailto:rehanmalik7862006@gmail.com">📧 Email</a>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-box">
+    <div class="form-title">Apply to Invest</div>
+    <div class="form-sub">Get in touch to discuss partnership, investment, or government collaboration. Saved to email + database.</div>
+    <form id="invest-form" action="https://formspree.io/f/xpwzzgvl" method="POST" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input class="form-input" type="text" name="name" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input class="form-input" type="text" name="organisation" placeholder="Fund / Company"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email *</label>
+          <input class="form-input" type="email" name="email" placeholder="you@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" name="phone" placeholder="+91 XXXXX XXXXX"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Interest In</label>
+        <select class="form-input" name="interest">
+          <option value="">Select...</option>
+          <option>Seed Investment (₹10L – ₹1Cr)</option>
+          <option>Series A (₹1Cr – ₹5Cr)</option>
+          <option>CSR Partnership</option>
+          <option>Government / Tender</option>
+          <option>Technical Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-input" name="message" rows="3" placeholder="Tell us about your interest..."></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="New WSB Investor Inquiry"/>
+      <button type="submit" class="form-btn" id="form-btn">Submit Application</button>
+      <div class="form-success" id="form-success">✅ Application received! Rehan will contact you within 24 hours.</div>
+    </form>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-logo">
+    <div style="width:26px;height:26px;background:#1a0505;border:1px solid var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px">⚡</div>
+    <span style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700">Women Safety Band</span>
+  </div>
+  <p class="footer-text">Rehan Ahmed Khan &bull; GEC Bikaner &bull; Empowering Women Through Technology &bull; 2025</p>
+  <p class="footer-text" style="margin-top:6px">
+    <a href="mailto:rehanmalik7862006@gmail.com" style="color:var(--text3);margin:0 8px">rehanmalik7862006@gmail.com</a>
+    <a href="https://www.linkedin.com/in/rehanmalik2786" target="_blank" style="color:var(--text3);margin:0 8px">LinkedIn</a>
+    <a href="https://rehan-ahmed-khan-porfolio.vercel.app" target="_blank" style="color:var(--text3);margin:0 8px">Portfolio</a>
+  </p>
+</footer>
+
+<script>
+// ── Embed founder photo from base64 ──
+(function(){
+  var img = document.getElementById('founder-img');
+  if(img) {
+    img.onerror = function(){
+      this.style.display='none';
+      this.parentElement.innerHTML='<div style="width:100%;height:100%;background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:40px;font-family:Syne,sans-serif;color:var(--red2);font-weight:800">RA</div>';
+    };
+  }
+})();
+
+// ── Form submission ──
+async function handleSubmit(e){
+  e.preventDefault();
+  const btn = document.getElementById('form-btn');
+  const success = document.getElementById('form-success');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const form = e.target;
+    const data = new FormData(form);
+    const res = await fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}});
+    if(res.ok){
+      btn.style.display = 'none';
+      success.style.display = 'block';
+      form.reset();
+    } else {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong. Please email directly: rehanmalik7862006@gmail.com');
+    }
+  } catch(err){
+    btn.textContent = 'Try Again';
+    btn.disabled = false;
+    alert('Please email directly: rehanmalik7862006@gmail.com');
+  }
+}
+
+// ── Smooth scroll for all anchor links ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>
